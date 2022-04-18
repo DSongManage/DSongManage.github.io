@@ -1,7 +1,3 @@
-
-let playerScore = 0;
-let compScore = 0;
-
 function logText(e) {
     console.log(this.classList.value);
     e.stopPropagation(); // stop bubbling!
@@ -16,72 +12,90 @@ bulbasaur.addEventListener('click', playRound)
 squirtle.addEventListener('click', playRound)
 charmander.addEventListener('click', playRound)
 
+let playerScore = 0;
+let compScore = 0;
+
+// while (playerScore < 5 || compScore < 5) {
+
 function playRound() {
-  
-  const myArray = ["bulbasaur", "squirtle", "charmander"];
-  const computerSelection = computerPlay();
+    const myArray = ["bulbasaur", "squirtle", "charmander"];
+    const computerSelection = computerPlay();
+    let playerSelection = this.classList.value.toUpperCase();
 
-  let playerSelection = this.classList.value.toUpperCase();
+    function computerPlay() {
+      y = myArray[~~(Math.random() * myArray.length)].toUpperCase();
+      return (y);
+    }
 
-  function computerPlay() {
-    y = myArray[~~(Math.random() * myArray.length)].toUpperCase();
-    return (y);
-  }
+    if (computerSelection === "BULBASAUR") {
+        if (playerSelection === computerSelection) {
+            playerScore = playerScore + 0;
+            compScore = compScore + 0;
+            var result = ("Bulbasaur vs Bulbasaur, it's a TIE!")
+        } else if (playerSelection === "SQUIRTLE") {
+            playerScore = playerScore + 0;
+            compScore = compScore + 1;
+            var result = ("Bulbasaur beats Squirtle, you LOSE!")
+        } else {
+            playerScore = playerScore + 1;
+            compScore = compScore + 0;
+            var result = ("Charmander beats Bulbasaur, you WIN!")
+        }   
+    } else if (computerSelection === "CHARMANDER") {
+        if (playerSelection === computerSelection) {
+            playerScore = playerScore + 0;
+            compScore = compScore + 0;
+            var result = ("Charmander vs Charmander, it's a TIE!")
+        } else if (playerSelection === "BULBASAUR") {
+            playerScore = playerScore + 0;
+            compScore = compScore + 1;
+            var result = ("Charmander beats Bulbasaur, you Lose!")
+        } else {
+            playerScore = playerScore + 1;
+            compScore = compScore + 0;
+            var result = ("Squirtle beats Charmander, you Win!")
+        }  
+    } else if (computerSelection === "SQUIRTLE") {
+        if (playerSelection === computerSelection) {
+            playerScore = playerScore + 0;
+            compScore = compScore + 0;
+            var result = ("Squirtle vs Squirtle, it's a Tie!")
+        } else if (playerSelection === "CHARMANDER") {
+            playerScore = playerScore + 0;
+            compScore = compScore + 1;
+            var result = ("Squirtle beats Charmander, You Lose!")
+        } else {
+            playerScore = playerScore + 1;
+            compScore = compScore + 0;
+            var result = ("Bulbasaur beats Squirtle, You Win!")
+        }  
+    }
 
-  if (computerSelection === "BULBASAUR") {
-      if (playerSelection === computerSelection) {
-          playerScore = playerScore + 0;
-          compScore = compScore + 0;
-          var result = ("Bulbasaur vs Bulbasaur, it's a TIE!")
-      } else if (playerSelection === "SQUIRTLE") {
-          playerScore = playerScore + 1;
-          compScore = compScore + 0;
-          var result = ("Bulbasaur beats Squirtle, you LOSE!")
-      } else {
-          playerScore = playerScore + 0;
-          compScore = compScore + 1;
-          var result = ("Charmander beats Bulbasaur, you WIN!")
-      }   
-  } else if (computerSelection === "CHARMANDER") {
-      if (playerSelection === computerSelection) {
-          playerScore = playerScore + 0;
-          compScore = compScore + 0;
-          var result = ("Charmander vs Charmander, it's a TIE!")
-      } else if (playerSelection === "BULBASAUR") {
-          playerScore = playerScore + 0;
-          compScore = compScore + 1;
-          var result = ("Charmander beats Bulbasaur, you Lose!")
-      } else {
-          playerScore = playerScore + 1;
-          compScore = compScore + 0;
-          var result = ("Squirtle beats Charmander, you Win!")
-      }  
-  } else if (computerSelection === "SQUIRTLE") {
-      if (playerSelection === computerSelection) {
-          playerScore = playerScore + 0;
-          compScore = compScore + 0;
-          var result = ("Squirtle vs Squirtle, it's a Tie!")
-      } else if (playerSelection === "CHARMANDER") {
-          playerScore = playerScore + 0;
-          compScore = compScore + 1;
-          var result = ("Squirtle beats Charmander, You Lose!")
-      } else {
-          playerScore = playerScore + 1;
-          compScore = compScore + 0;
-          var result = ("Bulbasaur beats Squirtle, You Win!")
-      }  
-  }
+  console.log(result);
+  console.log('player score: ' + playerScore);
+  console.log('computer score: ' + compScore);
   
   const resultContainer = document.querySelector('.resultContainer');
-  const content = document.createElement('div');
-  content.classList.add('content');
-  content.textContent = result;
-  resultContainer.appendChild(content);
-  
+
+  resultContainer.innerText = result + "\r\n";
+  resultContainer.innerText += "Player Score: " + playerScore + " vs Computer Score: " + compScore + "\r\n";
+
+  if (playerScore === 5) {
+    resultContainer.innerText += "\r\n YOU ARE THE WINNER!";
+    playerScore = 0;
+    compScore = 0;
+  } else if (compScore === 5) {
+    resultContainer.innerText += "\r\n COMPUTER WINS, you LOSE :(";
+    playerScore = 0;
+    compScore = 0;
+  } 
 
 }
 
-resultContainer.removeChild(content);
+document.getElementsByClassName("playerScore").innerHTML = playRound[0];
+
+
+// }
 
 
 

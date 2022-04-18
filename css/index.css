@@ -27,8 +27,9 @@
 
 .resultContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: 50px;
     justify-content: center;
     align-items: center;
+    column-gap: 100px;
 }
