@@ -6,23 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rps</title>
     <link rel="stylesheet" href="../css/index.css">
-    <script src="../js/app.js"></script>
+    <script src="../js/app.js" defer></script>
 </head>
 <body>
-    <div>  
-        <h1>Rock Papers Scissors</h1>
+    <div id="headTitle">  
+        <h1>Earth | Water | Fire</h1>
     </div>
 
-    <div>Play against me bitch!</div>
-    <form>
-        <input type="radio" id="rock" name="playerSelection" value="rock">
-        <label for="html">Rock</label><br>
-        <input type="radio" id="papers" name="playerSelection" value="papers">
-        <label for="css">Papers</label><br>
-        <input type="radio" id="scissors" name="playerSelection" value="scissors">
-        <label for="javascript">Scissors</label><br>
-        <button class="button">Play!</button>
-    </form>
-      
+    <div id="pokemonSelector">
+        <button class="bulbasaur"><img src="./images/bulbasaur.png" alt=""></button>
+        <button class="squirtle"><img src="./images/squirtle.png" alt=""></button>
+        <button class="charmander"><img src="./images/charmander.png" alt=""></button>
+    </div>    
+
+    <div class="resultContainer"></div>
 </body>
 </html>

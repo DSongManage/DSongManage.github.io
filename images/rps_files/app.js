@@ -71,17 +71,15 @@ function playRound() {
           var result = ("Bulbasaur beats Squirtle, You Win!")
       }  
   }
-  
+
   const resultContainer = document.querySelector('.resultContainer');
   const content = document.createElement('div');
   content.classList.add('content');
   content.textContent = result;
   resultContainer.appendChild(content);
-  
 
 }
 
-resultContainer.removeChild(content);
 
 
 
