@@ -1,5 +1,19 @@
+.mainContainer {
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-image: url(../images/pokemonBattleBackground.png);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
 #headTitle {
     display: flex;
+    /* background-color: rgb(53, 52, 52); */
+    color: white;
+    margin-left: 400px;
+    margin-right: 400px;
+    border-radius: 18px;
     justify-content: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -8,11 +22,15 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    column-gap: 20px;
+    column-gap: 30px;
 }
 .bulbasaur img{
     width: 200px;
     height: 200px;
+}
+
+.bulbasaur:hover {
+    border: solid 5px darkgreen;
 }
 
 .squirtle img{
@@ -20,16 +38,66 @@
     height: 200px;
 }
 
+.squirtle:hover {
+    border: solid 5px lightblue;
+}
+
 .charmander img{
     width: 200px;
     height: 200px;
 }
 
+.charmander:hover {
+    border: solid 5px orange;
+}
+
 .resultContainer {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: column; */
     margin: 50px;
     justify-content: center;
     align-items: center;
     column-gap: 100px;
+}
+
+.subTitles {
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+}
+
+.colorBulb {
+    color: darkgreen;
+    margin-bottom: 0px;
+}
+
+.colorSquirt {
+    color: lightblue;
+    margin-bottom: 0px;
+}
+
+.colorChar {
+    color: orange;
+    margin-bottom: 0px;
+}
+
+.bulbBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.squirtBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.charBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

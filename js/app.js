@@ -14,6 +14,7 @@ charmander.addEventListener('click', playRound)
 
 let playerScore = 0;
 let compScore = 0;
+let roundScore = 0;
 
 // while (playerScore < 5 || compScore < 5) {
 
@@ -31,40 +32,49 @@ function playRound() {
         if (playerSelection === computerSelection) {
             playerScore = playerScore + 0;
             compScore = compScore + 0;
+            roundScore = roundScore + 1;
             var result = ("Bulbasaur vs Bulbasaur, it's a TIE!")
         } else if (playerSelection === "SQUIRTLE") {
             playerScore = playerScore + 0;
             compScore = compScore + 1;
+            roundScore = roundScore + 1;
             var result = ("Bulbasaur beats Squirtle, you LOSE!")
         } else {
             playerScore = playerScore + 1;
             compScore = compScore + 0;
+            roundScore = roundScore + 1;
             var result = ("Charmander beats Bulbasaur, you WIN!")
         }   
     } else if (computerSelection === "CHARMANDER") {
-        if (playerSelection === computerSelection) {
+      if (playerSelection === computerSelection) {
+            roundScore = roundScore + 1;
             playerScore = playerScore + 0;
             compScore = compScore + 0;
             var result = ("Charmander vs Charmander, it's a TIE!")
-        } else if (playerSelection === "BULBASAUR") {
+      } else if (playerSelection === "BULBASAUR") {
+            roundScore = roundScore + 1;
             playerScore = playerScore + 0;
             compScore = compScore + 1;
             var result = ("Charmander beats Bulbasaur, you Lose!")
-        } else {
+      } else {
+            roundScore = roundScore + 1;
             playerScore = playerScore + 1;
             compScore = compScore + 0;
             var result = ("Squirtle beats Charmander, you Win!")
         }  
     } else if (computerSelection === "SQUIRTLE") {
-        if (playerSelection === computerSelection) {
+      if (playerSelection === computerSelection) {
+            roundScore = roundScore + 1;
             playerScore = playerScore + 0;
             compScore = compScore + 0;
             var result = ("Squirtle vs Squirtle, it's a Tie!")
-        } else if (playerSelection === "CHARMANDER") {
+      } else if (playerSelection === "CHARMANDER") {
+            roundScore = roundScore + 1;
             playerScore = playerScore + 0;
             compScore = compScore + 1;
             var result = ("Squirtle beats Charmander, You Lose!")
-        } else {
+      } else {
+            roundScore = roundScore + 1;
             playerScore = playerScore + 1;
             compScore = compScore + 0;
             var result = ("Bulbasaur beats Squirtle, You Win!")
@@ -72,20 +82,24 @@ function playRound() {
     }
 
   console.log(result);
+  console.log(roundScore);
   console.log('player score: ' + playerScore);
   console.log('computer score: ' + compScore);
   
   const resultContainer = document.querySelector('.resultContainer');
-
-  resultContainer.innerText = result + "\r\n";
+  
+  resultContainer.innerText = "Round " + roundScore + "...FIGHT!" + "\r\n";
+  resultContainer.innerText += result + "\r\n";
   resultContainer.innerText += "Player Score: " + playerScore + " vs Computer Score: " + compScore + "\r\n";
 
   if (playerScore === 5) {
     resultContainer.innerText += "\r\n YOU ARE THE WINNER!";
+    roundScore = 0;
     playerScore = 0;
     compScore = 0;
   } else if (compScore === 5) {
     resultContainer.innerText += "\r\n COMPUTER WINS, you LOSE :(";
+    roundScore = 0;
     playerScore = 0;
     compScore = 0;
   } 
